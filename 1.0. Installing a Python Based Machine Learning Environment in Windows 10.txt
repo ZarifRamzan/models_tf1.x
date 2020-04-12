@@ -1,0 +1,114 @@
+Installing a Python Based Machine Learning Environment in Windows 10
+
+======================================================================================================
+
+Sources:
+
+1. Installing a Python Based Machine Learning Environment in Windows 10
+https://towardsdatascience.com/installing-keras-tensorflow-using-anaconda-for-machine-learning-44ab28ff39cb
+
+2. How To Train an Object Detection Classifier Using TensorFlow (GPU) on Windows 10
+https://www.youtube.com/watch?v=Rgpfk6eYxJA&t=7s
+______________________________________________________________________________________________________
+
+Reqirements [Download and Install]:
+1. Python 3.xx [Recommeded Python 3.7.x @ Python 3.7.7]
+2. Anaconda 3.x [Recommended Anaconda 3.6]
+______________________________________________________________________________________________________
+
+Installation steps:
+
+1. Launch [Anconda Prompt]
+2. Create new conda environment [CUDA and cudnn version will automatically installed]
+	if you have Nvidia Graphics card (GPU), execute following command
+	>   conda create --name PythonGPU
+
+	if no Graphics card (CPU)
+	>   conda create --name PythonCPU
+
+3. Activate conda environment
+	for GPU
+	>   activate PythonGPU
+
+	for CPU
+	>   activate PythonCPU
+
+4. Install Keras
+	for GPU
+	>   conda install -c anaconda keras-gpu
+
+	for CPU
+	>   conda install -c anaconda keras
+
+5. Install Tensorflow [Choose either GPU or CPU]
+	for GPU [Recommended tensorflow]
+	-->   conda install tensorflow-gpu==1.13.1 
+
+	for CPU [latest tensorflow]
+	>   conda install --ignore-installed --upgrade tensorflow-gpu
+	>   conda install tensorflow-gpu
+	>   conda install -c anaconda tensorflow-gpu 
+	>   conda install -c conda-forge tensorflow-gpu 
+	
+	for GPU [Recommended tensorflow]
+	-->   conda install tensorflow==1.13.1
+
+	for CPU [latest tensorflow]
+	>   conda install tensorflow
+	>   conda install -c anaconda tensorflow 
+	>   conda install -c conda-forge tensorflow
+
+6. Install other Python Packages for Machine Learning / Deep Learning
+	>   conda install -c anaconda spyder
+	>   conda install -c anaconda jupyter
+	>   conda install -c anaconda pandas
+	>   conda install -c anaconda xlrd
+	>   conda install -c anaconda xlwt
+	>   conda install -c anaconda lxml
+	>   conda install -c anaconda seaborn
+	>   conda install -c anaconda pillow
+	>   conda install -c anaconda protobuf
+	>   conda install -c anaconda cython
+	>   conda install -c anaconda contextlib2
+	>   conda install -c anaconda scipy
+	>   conda install -c conda-forge opencv
+	>   conda install -c conda-forge matplotlib
+	>   conda install -c conda-forge numpy
+	>   conda install -c conda-forge scikit-learn
+	>   conda install -c conda-forge dlib
+
+7. Testing Installation
+	(tf) C:\Users\Zarif>	python
+	>>>	import numpy as np # For numerical fast numerical calculations
+	>>>	import matplotlib.pyplot as plt # For making plots
+	>>>	import pandas as pd # Deals with data
+	>>>	import seaborn as sns # Makes beautiful plots
+	>>>	from sklearn.preprocessing import StandardScaler # Testing sklearn
+	>>>	import tensorflow # Imports tensorflow
+	>>>	import keras # Imports keras
+It should shows [Using Tensorflow Backend]
+To exit python, execute 
+	>>>	exit()
+
+## 1. Adding missing modules / packages, simply Google something along the following lines:
+	Anaconda LibraryNameYouWant Install
+	eg. conda pandas install
+
+## 2. To uninstall modules / packages, simply
+	execute command by changing 'install' to uninstall
+	eg. [install]	conda install tensorflow
+	    [uninstall]	conda uninstall tensorflow
+
+## 3. No need to run Jupyter notebook as example in https://www.youtube.com/watch?v=Rgpfk6eYxJA&t=7s
+	because it will use more spaces
+______________________________________________________________________________________________________
+   Help	Help	Help	Help	Help	Help	Help	Help	Help	Help	Help	Help	Help	______________________________________________________________________________________________________
+
+1. Show version modules / packages installed
+	eg. pip show tensorflow
+	    pip show numpy
+	    pip show keras
+
+2. Downgrade tensorflow
+	eg. conda uninstall tensorflow
+	    conda install tensorflow==1.13.1

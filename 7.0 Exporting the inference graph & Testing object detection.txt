@@ -1,0 +1,49 @@
+============Set path correctly============
+>>>
+set PYTHONPATH=D:\tensorflow\models;D:\tensorflow\models\research;D:\tensorflow\models\research\slim
+
+============Check path============
+>>>
+echo %PATH%
+>>>
+echo %PYTHONPATH%
+
+============Compile Protobufs and run setup.py============
+>>>
+cd D:\Tensorflow\models\research
+>>>
+python setup.py build
+>>>
+python setup.py install
+
+
+7. Export Inference Graph
+
+Now that training is complete, the last step is to generate the frozen inference graph (.pb file). From the \object_detection folder, issue the following command, where “XXXX” in “model.ckpt-XXXX” should be replaced with the highest-numbered .ckpt file in the training folder:
+
+Directory= [D:\Tensorflow\models\research\object_detection\training]
+eg.[model.ckpt-11310.meta]
+XXXX = 11310
+
+============Export Inference Graph============
+>>>
+python export_inference_graph.py --input_type image_tensor --pipeline_config_path training/faster_rcnn_inception_v2_pets.config --trained_checkpoint_prefix training/model.ckpt-11310 --output_directory inference_graph
+				@
+python export_inference_graph.py --input_type image_tensor --pipeline_config_path training/ssd_inception_v2_pets.config --trained_checkpoint_prefix training/model.ckpt-XXXX --output_directory inference_graph
+				@
+python export_inference_graph.py --input_type image_tensor --pipeline_config_path training/[DL_NETWORK_NAME].config --trained_checkpoint_prefix training/model.ckpt-XXXX --output_directory inference_graph
+
+====================TEST Object Detection====================
+
+1. >>>	idle
+2. File > Open > Object_detection_webcam.py
+3. Modify
+
+# Number of classes the object detector can identify
+NUM_CLASSES = 6
+
+according to number of classes you want to identify.
+
+4. Click "F5".
+
+

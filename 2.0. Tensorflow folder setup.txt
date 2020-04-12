@@ -1,0 +1,44 @@
+______________________________________________________________________________________________________
+## A. Download Tensorflow models and create Tensorflow folder
+______________________________________________________________________________________________________
+https://github.com/tensorflow/models
+
+1. Download zip file and unzip the folder.
+2. Rename 'master-models' to 'models'.
+3. Put the 'models' folder in a new folder namely 'Tensorflow'.
+4. Cut 'Tensorflow' folder and paste 'Tensorflow' folder to D: drive.
+______________________________________________________________________________________________________
+## B. In Tensorflow detection model zoo page, download COCO-trained models
+______________________________________________________________________________________________________
+https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
+
+[You can download any DL models]
+eg.
+1. Dowload 'faster_rcnn_inception_v2_coco' and unzip the folder.
+2. Cut 'faster_rcnn_inception_v2_coco' folder and paste in 'object_detection' folder in Tensorflow.
+______________________________________________________________________________________________________
+## C. In Edje Electronics github repo, download the folder.
+______________________________________________________________________________________________________
+https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Train-Multiple-Objects-Windows-10#2-set-up-tensorflow-directory-and-anaconda-virtual-environment
+
+1. Download and unzip the folder.
+2. Copy all files from the folder.
+3. Paste in 'object_detection' folder [replace files if needed].
+4. Those folders/files should be inside the 'object_detection' folders:
+	-docs folder
+	-images folder
+	-inference_graph folder
+	-training folder
+	-faster_rcnn_inception_v2_coco_2018_01_28 folder [or any DL network model form COCO-trained model]
+	-generate_tfrecord.py 
+	-LICENCE 
+	-Object_detection_image.py
+	-Object_detection_video.py
+	-Object_detection_webcam.py
+	-resizer.py
+	-sizeChecker.py
+	-test.mov
+	-test1.jpg
+	-xml_to_csv.py
+   !!!!!-train.py [Copy 'train.py' from 'legacy' folder, then paste in 'object_detection' folder]
+				[Total is 16 files]

@@ -1,0 +1,72 @@
+1. Convert xml to csv
+
+>>>
+cd D:\Tensorflow\models\research\object_detection
+>>>
+python xml_to_csv.py
+
+2. Modify "generate_tfrecord.py".
+
+Next, open the generate_tfrecord.py file in a text editor. Replace the label map starting at line 31 with your own label map, where each object is assigned an ID number. This same number assignment will be used when configuring the labelmap.pbtxt file in Step 5b.
+
+For example, say you are training a classifier to detect basketballs, shirts, and shoes. You will replace the following code in generate_tfrecord.py:
+
+# TO-DO replace this with label map
+def class_text_to_int(row_label):
+    if row_label == 'nine':
+        return 1
+    elif row_label == 'ten':
+        return 2
+    elif row_label == 'jack':
+        return 3
+    elif row_label == 'queen':
+        return 4
+    elif row_label == 'king':
+        return 5
+    elif row_label == 'ace':
+        return 6
+    else:
+        None
+
+With this:
+
+# TO-DO replace this with label map
+def class_text_to_int(row_label):
+    if row_label == 'basketball':
+        return 1
+    elif row_label == 'shirt':
+        return 2
+    elif row_label == 'shoe':
+        return 3
+    else:
+        None
+
+3. Then, generate the TFRecord files by issuing these commands from the \object_detection folder:
+
+==================================="TFRecord"===================================
+>>>
+python generate_tfrecord.py --csv_input=images\train_labels.csv --image_dir=images\train --output_path=train.record
+>>>
+python generate_tfrecord.py --csv_input=images\test_labels.csv --image_dir=images\test --output_path=test.record
+
+=========================Modify "TFRecord_<FOLDER_NAME>"=========================
+>>>
+python generate_tfrecord_<FOLDER_NAME>.py --csv_input=images_<FOLDER_NAME>\train_labels.csv --image_dir=images_<FOLDER_NAME>\train --output_path=train_<FOLDER_NAME>.record
+>>>
+python generate_tfrecord_<FOLDER_NAME>.py --csv_input=images_<FOLDER_NAME>\test_labels.csv --image_dir=images_<FOLDER_NAME>\test --output_path=test_<FOLDER_NAME>.record
+
+===============================Modify "TFRecord_1"===============================
+>>>
+python generate_tfrecord_1.py --csv_input=images_1\train_labels.csv --image_dir=images_1\train --output_path=train_1.record
+>>>
+python generate_tfrecord_1.py --csv_input=images_1\test_labels.csv --image_dir=images_1\test --output_path=test_1.record
+
+===============================Modify "TFRecord_2"===============================
+>>>
+python generate_tfrecord_2.py --csv_input=images_2\train_labels.csv --image_dir=images_2\train --output_path=train_2.record
+>>>
+python generate_tfrecord_2.py --csv_input=images_2\test_labels.csv --image_dir=images_2\test --output_path=test_2.record
+
+_________________________________________________________________________________
+These generate a train.record and a test.record file in \object_detection. These will be used to train the new object detection classifier.
+_________________________________________________________________________________

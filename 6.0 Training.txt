@@ -1,0 +1,17 @@
+Start training
+
+>>>
+cd D:\Tensorflow\models\research\object_detection
+>>>
+python train.py --logtostderr --train_dir=training/ --pipeline_config_path=training/faster_rcnn_inception_v2_pets.config
+			@
+python train.py --logtostderr --train_dir=training_1/ --pipeline_config_path=training_1/faster_rcnn_inception_v2_pets.config
+			@
+python train.py --logtostderr --train_dir=training_<NAME>/ --pipeline_config_path=training_<NAME>/<DL_Network_NAME>.config
+
+Stop Training
+>>>
+[Ctrl]+[Z]
+
+Note!!
+Each step of training reports the loss. It will start high and get lower and lower as training progresses. For my training on the Faster-RCNN-Inception-V2 model, it started at about 3.0 and quickly dropped below 0.8. I recommend allowing your model to train until the loss consistently drops below 0.05, which will take about 40,000 steps, or about 2 hours (depending on how powerful your CPU and GPU are). Note: The loss numbers will be different if a different model is used. MobileNet-SSD starts with a loss of about 20, and should be trained until the loss is consistently under 2.
